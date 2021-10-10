@@ -14,12 +14,19 @@ import random
 # Aquí dentro definir la función lista_aleatoria
 
 
+def lista_aleatoria(inicio, fin, cantidad):
+    listaaux = []
+    for i in range(cantidad):
+        numero = random.randrange(inicio, fin+1)
+        listaaux.append(numero)
+    return listaaux
+
 # --------------------------------
 
 
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
-    
+
     inicio = 0
     fin = 10
     cantidad = 5
@@ -56,9 +63,13 @@ if __name__ == '__main__':
 
     # mi_lista_aleatoria = lista_aleatoria(inicio, fin, cantidad)
 
+    mi_lista_aleatoria = lista_aleatoria(inicio, fin, cantidad)
+
     # Imprimir en pantalla "mi_lista_aleatoria" que tendrá
     # los valores retornado por la función lista_aleatoria:
 
     # print(mi_lista_aleatoria)
+
+    print(mi_lista_aleatoria)
 
     print("terminamos")

@@ -10,10 +10,17 @@
 # Ejercicios con funciones
 
 def imprimir_mayor(numero_1, numero_2):
-    print("Funcion imprimir mayor")
+    
+    if numero_1<numero_2:
+        print(numero_2)
+    if numero_2<numero_1:
+        print(numero_1)
+    if numero_2==numero_1:
+        print(numero_1,"=",numero_2)
     # En esta función debe determinar cual de los dos
     # números ingresados por parámetro es mayor
     # y luego imprimir dicho valor en pantalla
+
 
 
 if __name__ == '__main__':

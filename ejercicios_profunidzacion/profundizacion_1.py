@@ -4,7 +4,7 @@
 # Autor: Inove Coding School
 # Version: 2.0
 
-# NOTA: 
+# NOTA:
 # Estos ejercicios son de mayor dificultad que los de clase y práctica.
 # Están pensados para aquellos con conocimientos previo o que dispongan
 # de mucho más tiempo para abordar estos temas por su cuenta.
@@ -78,10 +78,44 @@ import random
 # todas las funciones que utilice
 
 
+def lista_aleatoria(inicio, fin, cantidad):
+    listaaux = []
+    for i in range(cantidad):
+        numero = random.randrange(inicio, fin+1)
+        listaaux.append(numero)
+    return listaaux
+
+
+def generala(lista):
+    if lista.count(lista[0]) == 5:
+        return False
+    else:
+        return True
 # --------------------------------
 
+
 if __name__ == '__main__':
+    numero_de_tiradas = 0
     print("¡El juego de la generala!")
     # A partir de aquí escriba el código que
     # invoca a las funciones y resuelve el enunciado
     # Leer el enunciado con atención y consultar cualquier duda
+    tirada = lista_aleatoria(1, 6, 5)
+    numero_de_tiradas += 1
+    print("tirada n°:", numero_de_tiradas, "  ", tirada)
+    es_generala = generala(tirada)
+
+    while generala(tirada):
+        numero_elegido = max(tirada, key=tirada.count)
+        numero_de_numeros_elegidos = tirada.count(numero_elegido)
+        siguiente_tirada = lista_aleatoria(
+            1, 6, (5-numero_de_numeros_elegidos))
+        numero_de_tiradas += 1
+        print("tirada n°:", numero_de_tiradas, "  ", siguiente_tirada)
+        tirada_aux = []
+        for i in range(numero_de_numeros_elegidos):
+            tirada_aux.append(numero_elegido)
+        tirada_aux.extend(siguiente_tirada)
+        tirada = tirada_aux
+        print("mi jugada es: ",tirada)
+    print(tirada)
